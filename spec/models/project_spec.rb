@@ -66,6 +66,5 @@ RSpec.describe Project do
       project.due_date = 6.months.from_now
       expect(project).to be_on_schedule
     end
-
   end
 end
