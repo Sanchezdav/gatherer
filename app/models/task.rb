@@ -1,5 +1,5 @@
 class Task
-  ttr_accessor :size, :completed_at
+  attr_accessor :size, :completed_at
 
   def initialize(options = {})
     mark_completed(options[:completed_at]) if options[:completed_at]
