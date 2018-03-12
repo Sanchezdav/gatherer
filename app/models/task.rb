@@ -1,17 +1,12 @@
-class Task
-  attr_accessor :size, :completed_at
+class Task < ApplicationRecord
+  belongs_to :project
 
-  def initialize(options = {})
-    mark_completed(options[:completed_at]) if options[:completed_at]
-    @size = options[:size]
+  def mark_completed(date = nil)
+    self.completed_at = (date || Time.current)
   end
 
   def complete?
-    @completed_at.present?
-  end
-
-  def mark_completed(date = nil)
-    @completed_at = (date|| Time.current)
+    completed_at.present?
   end
 
   def part_of_velocity?
